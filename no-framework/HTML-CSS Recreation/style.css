@@ -1,0 +1,169 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #dbfae9
+}
+.topbox .boldText {
+    font-weight: bold;
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #2a992a;
+    height: 31px;
+    justify-content: flex-start;
+    align-items: center;
+    /*gap: 36px;*/
+    position: relative;
+}
+
+nav h2 {
+    display: flex;
+    flex-direction: row;
+    /*margin: 0 15px;*/
+    font-size: 1.15rem;
+    box-sizing: border-box;
+    padding: 5px 58px 5px 10px;
+    width: 100px;
+}
+
+h2.edit {
+    font-weight: normal;
+}
+
+nav h2:hover {
+    background-color: #27c440;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbox, .bottombox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 25px;
+    width: 78vw;
+    /*height: 15vh;*/
+    border: 1px solid white;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+.topbox h3, .bottombox h3 {
+    margin: 15px 10px 0 15px;
+}
+
+.topbox p, .bottombox p {
+    padding: 0 21px 15px 15px;
+    font-size: 1rem;
+
+}
+.topbox {
+    border-left: 5px solid #27c440;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.bottombox {
+    border-left: 5px solid yellow;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.hoverlist ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: stretch;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.hoverlist ul li {
+    /*padding-left: 10px;*/
+    padding: 5px 10px 5px 10px;
+}
+
+.file-extension, .edit-extension, .view-extension {
+    display: flex;
+    z-index: 1;
+    background-color: #27c440;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    opacity: 0;
+    color: #551a8b;
+}
+
+.hoverlist ul li:hover {
+    background-color: #57e872;
+}
+
+.file-extension {
+    position: absolute;
+    top: 31px;
+    width: 100px;
+}
+.edit-extension {
+    position: absolute;
+    left: 100px;
+    top: 31px;
+    width: 100px;
+}
+.view-extension {
+    position: absolute;
+    top: 31px;
+    width: 100px;
+    left: 200px;
+}
+
+.file:hover + .file-extension, .file-extension:hover {
+    opacity: 1;
+}
+
+.edit:hover + .edit-extension, .edit:focus + .edit-extension,.edit-extension:hover {
+    opacity: 1;
+}
+
+.view:hover + .view-extension, .view-extension:hover {
+    opacity: 1;
+}
+
+button.edit {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    /*padding: 0;*/
+    margin: 0;
+    font-family: inherit;
+    color: inherit;
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.15rem;
+    box-sizing: border-box;
+    padding: 5px 58px 5px 10px;
+    width: 100px;
+    font-weight: normal;
+}
+
+button.edit:hover {
+    background-color: #27c440;
+}
+
+button.edit:focus {
+    background-color: #27c440;
+}
+
+
