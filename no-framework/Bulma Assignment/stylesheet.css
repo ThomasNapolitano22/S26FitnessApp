@@ -1,0 +1,32 @@
+
+.navbar-burger span {
+    background-color: white;
+}
+/*#homeButton {*/
+/*    color: white;*/
+/*}*/
+/*#docsButton{*/
+/*    color: white;*/
+/*}*/
+ #docsDropDown .navbar-item{
+     color: rgba(0,0,0, 65%);
+ }
+ #docsDropDown .navbar-item:hover{
+     color: rgba(0,0,0, 100%);
+     background-color: rgba(0,0,0, 5%);
+ }
+ #docsDropDown hr{
+     background-color: rgba(0,0,0, 5%);
+ }
+ /*#downloadIcon{*/
+ /*    color: white;*/
+ /*}*/
+ /*#downloadText{*/
+ /*    color: white;*/
+ /*}*/
+ #homeButton, #docsButton, #downloadIcon, #downloadText{
+     color: white;
+ }
+ a.navbar-item.is-selected{
+     color: white !important;
+ }
