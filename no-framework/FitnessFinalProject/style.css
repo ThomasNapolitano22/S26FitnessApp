@@ -1,8 +1,13 @@
 :root{
-    --bulma-primary-h: 135deg;
-    --bulma-primary-s: 100%;
-    --bulma-primary-l: 13.0%
+    --bulma-primary-h: 88deg;
+    --bulma-primary-s: 38.46%;
+    --bulma-primary-l: 15.29%
+}
+body{
+    background-color: #445128 !important;  
+    height: 100vh;
+    margin: 0;
 }
 .navbar-burger span {
-    background-color: white;
+    background-color: #FEFAE0;
 }
