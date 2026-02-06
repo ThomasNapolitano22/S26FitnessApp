@@ -3,3 +3,6 @@
     --bulma-primary-s: 100%;
     --bulma-primary-l: 13.0%
 }
+.navbar-burger span {
+    background-color: white;
+}
