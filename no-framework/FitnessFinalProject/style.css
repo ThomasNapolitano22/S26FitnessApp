@@ -43,3 +43,22 @@ h4.bd-footer-title{
     text-decoration: underline;
     text-underline-offset: 2px;
 }
+
+#welcomeTitle{
+    color:hsl(52deg, 93.75%, 93.73%);
+}
+
+#enterEmailPrompt{
+    color: hsl(52deg, 93.75%, 93.73%);
+}
+
+.hero .box {
+    background-color: #1f2a12;
+    border: 1px solid #DDA15E;
+}
+
+.hero .box .button {
+    background-color: #DDA15E;
+    color: #283618;
+    border-color: #DDA15E;
+}
