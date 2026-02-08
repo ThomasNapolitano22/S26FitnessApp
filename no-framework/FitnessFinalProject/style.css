@@ -19,7 +19,9 @@ body{
 }
 
 .footer{
-    background-color: #283618;
+    background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%);
+    border-top: 1.5px solid #fefae0;
+    border-bottom: 1.5px solid #fefae0;
 }
 
 #brandFooter{
@@ -53,12 +55,39 @@ h4.bd-footer-title{
 }
 
 .hero .box {
-    background-color: #1f2a12;
+    background-color: #BC6C25;
     border: 1px solid #DDA15E;
 }
 
 .hero .box .button {
-    background-color: #DDA15E;
+    background-color: #fefae0;
+    color: #283618;
+    border-color: #fefae0;
+}
+
+.hero .input {
+    background-color: #fefae0;
     color: #283618;
     border-color: #DDA15E;
+}
+
+.hero .input::placeholder {
+    color: black;
+    font-weight: light;
+}
+
+#forestHeroBackground{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2641');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#glassyBox{
+    background-color: rgba(40, 54, 24, 0.6); 
+    padding: 3rem; 
+    border-radius: 25px; 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
