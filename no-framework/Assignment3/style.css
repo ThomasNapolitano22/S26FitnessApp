@@ -51,7 +51,8 @@ main {
     flex-direction: column;
     box-sizing: border-box;
     margin-top: 25px;
-    width: 78vw;
+    width: 93.5%;
+    max-width: 1180px;
     /*height: 15vh;*/
     border: 1px solid white;
     background-color: white;
@@ -132,8 +133,12 @@ main {
     opacity: 1;
 }
 
-.edit:hover + .edit-extension, .edit:focus + .edit-extension,.edit-extension:hover {
+.editMenu:hover .edit-extension, .editMenu:focus-within .edit-extension {
     opacity: 1;
+}
+
+.editMenu:focus-within .edit {
+    background-color: #27c440;
 }
 
 .view:hover + .view-extension, .view-extension:hover {
