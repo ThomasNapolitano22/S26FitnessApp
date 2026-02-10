@@ -62,7 +62,7 @@
                 <i class="fab fa-twitter"></i>
               </span>
 
-              <span> Tweet </span>
+              <span id="tweetWord"> Tweet </span>
                             </a>
                         </p>
                 <p class="control">
@@ -88,12 +88,16 @@
                     <div class="card">
                         <header class="card-header">
                             <p class="card-header-title"> Component </p>
-                            <button class="card-header-icon" aria-label="more options"></button>
+                            <a ref="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
                         </header>
                         <div class="card-content">
                             <div class="content">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                                <a href="#">@bulmaio</a>.  <a href="#"> #css </a> <a href="#"> #responsiveness</a> <br> <time datetime="2016-1-1"> 11:09 PM - 1 Jan 2016</time>
+                                <a href="#">@bulmaio</a>.  <a href="#"> #css </a> <a href="#"> #responsive</a> <br> <time datetime="2016-1-1"> 11:09 PM - 1 Jan 2016</time>
                             </div>
                         </div>
                         <footer class="card-footer">
@@ -112,7 +116,7 @@
                 
                 <div class="column is-half">
                     <article class="panel">
-                        <div class="tabs is-boxed">
+                        <div class="tabs is-boxed mb-5">
                             <ul>
                                 <li class="is-active">
                                     <a>
@@ -156,26 +160,38 @@
                                 </span>
                             </p>
                         </div>
-                        <a class="panel-block">
+                        <!-- <div id="panelblockWords"> -->
+                        <a class="panel-block is-active">
                             <input type="checkbox" checked>
+                            <div class="panelBlockWords">
                             Make Bulma Great Again
+                            </div>
                         </a>
                         <a class="panel-block">
                             <input type="checkbox">
+                            <div class="panelBlockWords">
                             Add some more features
+                            </div>
                         </a>
                         <a class="panel-block">
                             <input type="checkbox">
+                            <div class="panelBlockWords">
                             Make a github account
+                            </div>
                         </a>
                         <a class="panel-block">
                             <input type="checkbox">
+                            <div class="panelBlockWords">
                             Learn how to use github
+                            </div>
                         </a>
                         <a class="panel-block">
                             <input type="checkbox">
+                            <div class="panelBlockWords">
                             add a .gitignore file
+                            </div>
                         </a>
+                        <!-- </div> -->
                     </article>
 
                     <article class="message is-primary">
@@ -283,7 +299,7 @@
                 </div>
 
                 <div class="column is-one-quarter">
-                    <h2 class="title">Table of contents</h2>
+                    <h2 class="title is-3" id="tocWord">Table of contents</h2>
                     <h3 class="subtitle">Intra-page navigation</h3>
                         <aside class="menu">
                             <p class="menu-label"> General </p>
@@ -295,7 +311,7 @@
                                         <a>Customers</a>
                                     </li>
                                 </ul>
-                            <p class="menu-label"> Adminstartion </p>
+                            <p class="menu-label"> Adminstration </p>
 
                             <ul class="menu-list">
                                 <li>

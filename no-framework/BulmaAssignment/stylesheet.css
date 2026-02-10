@@ -1,4 +1,9 @@
-
+:root{
+    
+    --bulma-link-h: 229;
+    --bulma-link-s: 53%;
+    --bulma-link-l: 53%;
+}
 .navbar-burger span {
     background-color: white;
 }
@@ -29,4 +34,29 @@
  }
  a.navbar-item.is-selected{
      color: white !important;
+ }
+ 
+ #tweetWord{
+    font-weight: 400;
+ }
+
+ #tocWord{
+    font-weight: 500;
+ }
+
+ #panelblockWords{
+    font-size: 16px;      /* Shrinks text from 16px to approx 13.6px */
+    padding-top: 0em;     /* Reduces top padding */
+    padding-bottom: 0em;  /* Reduces bottom padding */
+    line-height: 1.25;
+    font-family: "system-ui";
+ }
+
+ .panelBlockWords{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+ }
+
+ .message-header{
+    color: white;
  }
