@@ -3,6 +3,7 @@
     --bulma-primary-s: 93.75%;
     --bulma-primary-l: 93.73%
 }
+
 body{
     background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%) !important;  
     /* background-color: black; */
@@ -10,6 +11,7 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: "Noto Serif", serif;
 }
 .navbar-burger span {
     background-color: #DDA15E;
@@ -135,37 +137,37 @@ h4.bd-footer-title{
 /* The Grid Layout */
 .testimonial-grid {
     display: flex;
-    justify-content: center; /* Centers the cards */
-    gap: 30px; /* Space between cards */
-    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    justify-content: center; 
+    gap: 30px; 
+    flex-wrap: wrap; 
 }
 
 /* Individual Card Style */
 .testimonial-card {
-    background-color: #3a523a; /* A slightly lighter green for contrast */
+    background-color: #BC6C25; 
     border: 2px solid #ffffff;
     border-radius: 20px;
     padding: 40px 30px;
-    position: relative; /* Essential for the floating quotes */
-    flex: 1 1 300px; /* Flexible width: grows, shrinks, base width of 300px */
-    max-width: 350px; /* Ensures cards don't get too wide */
+    position: relative; 
+    flex: 1 1 300px; 
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Profile Image ("Red" part of your diagram) */
+
 .profile-img {
     width: 100px;
     height: 100px;
-    border-radius: 50%; /* Makes the image a circle */
+    border-radius: 50%; 
     object-fit: cover;
     border: 3px solid #ffffff;
     margin-bottom: 25px;
-    background-color: #cc5544; /* Placeholder color */
+    background-color: #cc5544; 
 }
 
-/* Quote Text ("White" part of your diagram) */
+
 .testimonial-card blockquote {
     font-size: 1.1rem;
     line-height: 1.6;
@@ -175,27 +177,24 @@ h4.bd-footer-title{
 
 .member-name {
     font-weight: bold;
-    margin: 0;
+    margin: 20;
 }
 
-/* --- Floating Quote Icons (Kept from previous design) --- */
+
 .quote-icon {
     position: absolute;
     font-size: 5rem;
     line-height: 1;
-    font-family: serif;
-    color: #ffffff;
-    /* This is the trick! It masks the border behind the quote */
-    background-color: #3a523a; 
+    color: hsl(52deg, 93.75%, 93.73%);
     padding: 0 10px;
 }
 
 .top-quote {
-    top: -25px; /* Adjusts vertical position */
-    left: 20px;
+    top: 125px; 
+    left: 1px;
 }
 
 .bottom-quote {
-    bottom: -25px; /* Adjusts vertical position */
+    bottom: 20px; 
     right: 20px;
 }
