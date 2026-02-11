@@ -117,9 +117,13 @@ h4.bd-footer-title{
 /* --- Testimonial Section --- */
 #testimonial {
     /* background: linear-gradient(to top, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
     color:hsl(52deg, 93.75%, 93.73%);
     padding: 60px 0;
     text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .section-title {
