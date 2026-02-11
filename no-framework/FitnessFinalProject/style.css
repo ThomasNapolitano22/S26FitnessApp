@@ -96,11 +96,106 @@ h4.bd-footer-title{
 
 #fourLogoInfo{
     border-top: 1.5px solid #fefae0;
-    background: #162B19;
-    background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%);
+    border-bottom: 1.5px solid #fefae0;
+    /* background: #162B19; */
+    /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
     padding: 3rem 0;
 }
 
 .blobParagraph{
     color:#fefae0;
+}
+
+#backgroundForTwoSections{
+    background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%);
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+}
+/* --- Testimonial Section --- */
+#testimonial {
+    /* background: linear-gradient(to top, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+    color:hsl(52deg, 93.75%, 93.73%);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    border: solid #fefae0;
+    border-radius: 25px;
+    padding: 10px 50px;
+    background-color: #DDA15E;
+    display: inline-block;
+    
+}
+
+/* The Grid Layout */
+.testimonial-grid {
+    display: flex;
+    justify-content: center; /* Centers the cards */
+    gap: 30px; /* Space between cards */
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+}
+
+/* Individual Card Style */
+.testimonial-card {
+    background-color: #3a523a; /* A slightly lighter green for contrast */
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative; /* Essential for the floating quotes */
+    flex: 1 1 300px; /* Flexible width: grows, shrinks, base width of 300px */
+    max-width: 350px; /* Ensures cards don't get too wide */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile Image ("Red" part of your diagram) */
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    margin-bottom: 25px;
+    background-color: #cc5544; /* Placeholder color */
+}
+
+/* Quote Text ("White" part of your diagram) */
+.testimonial-card blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 20px 0;
+}
+
+.member-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* --- Floating Quote Icons (Kept from previous design) --- */
+.quote-icon {
+    position: absolute;
+    font-size: 5rem;
+    line-height: 1;
+    font-family: serif;
+    color: #ffffff;
+    /* This is the trick! It masks the border behind the quote */
+    background-color: #3a523a; 
+    padding: 0 10px;
+}
+
+.top-quote {
+    top: -25px; /* Adjusts vertical position */
+    left: 20px;
+}
+
+.bottom-quote {
+    bottom: -25px; /* Adjusts vertical position */
+    right: 20px;
 }
