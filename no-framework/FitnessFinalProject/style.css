@@ -202,3 +202,50 @@ h4.bd-footer-title{
     bottom: 20px; 
     right: 20px;
 }
+
+.gifSymbols {
+    font-size: 200px;
+    display: inline-block;
+}
+
+#symbolsAndText{
+    background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%);
+    border-top: 1.5px solid #fefae0;
+
+}
+
+#heartSymbol{
+    background: url('https://cdn.pixabay.com/animation/2025/10/02/11/04/11-04-54-262_512.gif') center center no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(52deg, 93.75%, 93.73%); 
+}
+
+#treeSymbol{
+    background: url('https://cdn.pixabay.com/animation/2022/12/08/16/38/16-38-28-429_512.gif') center center no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(52deg, 93.75%, 93.73%); 
+}
+
+#hikingSymbol{
+    background: url('https://cdn.pixabay.com/animation/2022/11/27/16/24/16-24-57-744_512.gif') center center no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(52deg, 93.75%, 93.73%); 
+}
+
+#cloudSunSymbol{
+    background: url('https://cdn.pixabay.com/animation/2023/02/12/02/01/02-01-27-439_512.gif') center center no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(52deg, 93.75%, 93.73%); 
+}
