@@ -81,7 +81,7 @@ h4.bd-footer-title{
 }
 
 #forestHeroBackground{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2641');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/forestHeroBackground.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
