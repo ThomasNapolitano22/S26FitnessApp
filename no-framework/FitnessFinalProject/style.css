@@ -22,18 +22,22 @@ body{
 }
 
 .footer{
-    background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%);
+    /* background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%); */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-top: 1.5px solid #fefae0;
     border-bottom: 1.5px solid #fefae0;
-    padding: 2rem 1.5rem;
+    padding: 0.75rem 1rem;
 }
 
 #brandFooter{
-    color: hsl(52deg, 93.75%, 93.73%)
+    color: hsl(52deg, 93.75%, 93.73%);
 }
 
 h4.bd-footer-title{
-    color:#DDA15E
+    color:#DDA15E;
 }
 
 #footerColumn1,#footerColumn2,#footerColumn3 li a {
@@ -126,7 +130,7 @@ h4.bd-footer-title{
     background-repeat: no-repeat;
 }
 
-.section-title {
+#testimonialTitle {
     font-size: 2.5rem;
     margin-bottom: 50px;
     font-weight: 700;
@@ -135,7 +139,6 @@ h4.bd-footer-title{
     padding: 10px 50px;
     background-color: #DDA15E;
     display: inline-block;
-    
 }
 
 /* The Grid Layout */
@@ -209,11 +212,15 @@ h4.bd-footer-title{
 }
 
 #symbolsAndText{
-    background-image:
+    /* background-image:
         radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        radial-gradient(rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%);
-    background-size: 20px 20px, cover;
-    background-repeat: repeat, no-repeat;
+        radial-gradient(rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+    /* background-size: 20px 20px, cover; */
+    /* background-repeat: repeat, no-repeat; */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/heroBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-top: 1.5px solid #fefae0;
 }
 
@@ -277,6 +284,15 @@ h4.bd-footer-title{
     font-style: italic;
 }
 
+#threeCardsSection{
+    border-top: 1.5px solid #fefae0;
+    /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/threeCardsBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* #columnHero{
     background-image: radial-gradient(#ffffff 1px, transparent 1px);
     background-size: 20px 20px;
@@ -284,3 +300,15 @@ h4.bd-footer-title{
     background-position: center;
     opacity: 0.9;
 } */
+
+#threeCardsTitle{
+    color: #fefae0;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    border: solid #fefae0;
+    border-radius: 25px;
+    padding: 10px 50px;
+    background-color: #DDA15E;
+    display: inline-block;
+}
