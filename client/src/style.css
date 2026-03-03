@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --bulma-primary-h: 52deg;
     --bulma-primary-s: 93.75%;
     --bulma-primary-l: 93.73%
@@ -6,7 +6,6 @@
 
 body{
     background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%) !important;  
-    /* background-color: black; */
     min-height: 100vh;
     margin: 0;
     display: flex;
@@ -22,7 +21,6 @@ body{
 }
 
 .footer{
-    /* background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%); */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage2.png');
     background-size: cover;
     background-position: center;
@@ -105,8 +103,8 @@ h4.bd-footer-title{
     border-bottom: 1.5px solid #fefae0;
     /* background: #162B19; */
     /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
-    padding: 3rem 0;
-}
+    /* padding: 3rem 0; */
+/* }
 
 .blobParagraph{
     color:#fefae0;
@@ -118,9 +116,8 @@ h4.bd-footer-title{
     margin: 0;
     width: 100vw;
 }
-/* --- Testimonial Section --- */
+
 #testimonial {
-    /* background: linear-gradient(to top, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
     color:hsl(52deg, 93.75%, 93.73%);
     padding: 60px 0;
@@ -141,7 +138,6 @@ h4.bd-footer-title{
     display: inline-block;
 }
 
-/* The Grid Layout */
 .testimonial-grid {
     display: flex;
     justify-content: center; 
@@ -149,7 +145,6 @@ h4.bd-footer-title{
     flex-wrap: wrap; 
 }
 
-/* Individual Card Style */
 .testimonial-card {
     background-color: #BC6C25; 
     border: 2px solid #ffffff;
@@ -212,11 +207,6 @@ h4.bd-footer-title{
 }
 
 #symbolsAndText{
-    /* background-image:
-        radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        radial-gradient(rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
-    /* background-size: 20px 20px, cover; */
-    /* background-repeat: repeat, no-repeat; */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/heroBackground.png');
     background-size: cover;
     background-position: center;
@@ -286,20 +276,13 @@ h4.bd-footer-title{
 
 #threeCardsSection{
     border-top: 1.5px solid #fefae0;
-    /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/threeCardsBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* #columnHero{
-    background-image: radial-gradient(#ffffff 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-repeat: repeat;
-    background-position: center;
-    opacity: 0.9;
-} */
+
 
 #threeCardsTitle{
     color: #fefae0;
@@ -311,4 +294,4 @@ h4.bd-footer-title{
     padding: 10px 50px;
     background-color: #DDA15E;
     display: inline-block;
-}
+}  */

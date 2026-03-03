@@ -54,5 +54,11 @@
     </nav>
 </template>
 
-<script>
+<script setup>
 </script>
+
+<style>
+    .navbar-burger span {
+        background-color: #DDA15E;
+    }
+</style>

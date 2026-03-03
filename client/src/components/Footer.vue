@@ -57,5 +57,40 @@
     </footer>
 </template>
 
-<script>
+<script setup>
 </script>
+
+<style>
+    .footer {
+        /* background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%); */
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/footerImage2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-top: 1.5px solid #fefae0;
+        border-bottom: 1.5px solid #fefae0;
+        padding: 0.75rem 1rem;
+    }
+
+    #brandFooter {
+        color: hsl(52deg, 93.75%, 93.73%);
+    }
+
+    h4.bd-footer-title {
+        color:#DDA15E;
+    }
+
+    #footerColumn1,#footerColumn2,#footerColumn3 li a {
+        font-size: 0.85rem;
+    }
+
+    #footerColumn1 a:hover,
+    #footerColumn2 a:hover {
+        text-decoration: underline;
+    }
+
+    .footer a:hover .footer-link-text {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+</style>

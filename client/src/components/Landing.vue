@@ -32,5 +32,53 @@
     </section>
 </template>
 
-<script>
+<script setup>
 </script>
+
+<style>
+    #welcomeTitle {
+        color:hsl(52deg, 93.75%, 93.73%);
+    }
+
+    #enterEmailPrompt {
+        color: hsl(52deg, 93.75%, 93.73%);
+    }
+
+    .hero .box {
+        background-color: #BC6C25;
+        border: 1px solid #DDA15E;
+    }
+
+    .hero .box .button {
+        background-color: #fefae0;
+        color: #283618;
+        border-color: #fefae0;
+    }
+
+    .hero .input {
+        background-color: #fefae0;
+        color: #283618;
+        border-color: #DDA15E;
+    }
+
+    .hero .input::placeholder {
+        color: black;
+        font-weight: light;
+    }
+
+    #forestHeroBackground {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/forestHeroBackground.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    #glassyBox {
+        background-color: rgba(40, 54, 24, 0.6); 
+        padding: 3rem; 
+        border-radius: 25px; 
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+</style>

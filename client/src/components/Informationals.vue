@@ -194,5 +194,201 @@
     </section>
 </template>
 
-<script>
+<script setup>
 </script>
+
+<style>
+    #fourLogoInfo {
+        border-top: 1.5px solid #fefae0;
+        border-bottom: 1.5px solid #fefae0;
+        /* background: #162B19; */
+        /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+        padding: 3rem 0;
+    }
+
+    .blobParagraph {
+        color:#fefae0;
+    }
+
+    #backgroundForTwoSections {
+        background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%);
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+    }
+
+    #testimonial {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
+        color:hsl(52deg, 93.75%, 93.73%);
+        padding: 60px 0;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #testimonialTitle {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+        border: solid #fefae0;
+        border-radius: 25px;
+        padding: 10px 50px;
+        background-color: #DDA15E;
+        display: inline-block;
+    }
+
+    .testimonial-grid {
+        display: flex;
+        justify-content: center; 
+        gap: 30px; 
+        flex-wrap: wrap; 
+    }
+
+    .testimonial-card {
+        background-color: #BC6C25; 
+        border: 2px solid #ffffff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        position: relative; 
+        flex: 1 1 300px; 
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; 
+        object-fit: cover;
+        border: 3px solid #ffffff;
+        margin-bottom: 25px;
+        background-color: #cc5544; 
+    }
+
+    .testimonial-card blockquote {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin: 0 0 20px 0;
+    }
+
+    .member-name {
+        font-weight: bold;
+        margin: 20;
+    }
+
+    .quote-icon {
+        position: absolute;
+        font-size: 5rem;
+        line-height: 1;
+        color: hsl(52deg, 93.75%, 93.73%);
+        padding: 0 10px;
+    }
+
+    .top-quote {
+        top: 125px; 
+        left: 1px;
+    }
+
+    .bottom-quote {
+        bottom: 20px; 
+        right: 20px;
+    }
+
+    .gifSymbols {
+        font-size: 200px;
+        display: inline-block;
+    }
+
+    #symbolsAndText {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/heroBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-top: 1.5px solid #fefae0;
+    }
+
+    #heartSymbol {
+        background: url('images/heartSymbol.gif') center center no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 6px #fefae0; 
+    }
+
+    #treeSymbol {
+        background: url('images/treeSymbol.gif') center center no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 6px #fefae0; 
+    }
+
+    #hikingSymbol {
+        background: url('images/hikingSymbol.gif') center center no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 6px #fefae0; 
+    }
+
+    #cloudSunSymbol {
+        background: url('images/cloudSun.gif') center center no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 6px #fefae0; 
+    }
+
+    #discoverWord, #footerWord {
+        font-family: "Space Mono", monospace; 
+        text-transform: uppercase;          
+        letter-spacing: 3px;                  
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-size: 60px;
+        text-decoration: underline wavy #DDA15E 6px;
+        text-underline-offset: 10px;
+        color: #fefae0;
+        font-style: italic;
+    }
+
+    #fitnessWord {
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        text-shadow: 0 -6.25px #EECE9F, 0 -12.5px #DDA15E, 0 6.25px #CD8742,
+        0 12.5px #BC6C25;
+        color: #fefae0;
+        font-size: 75px;
+        letter-spacing: 2px;
+        font-style: italic;
+    }
+
+    #threeCardsSection {
+        border-top: 1.5px solid #fefae0;
+        /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/threeCardsBackground.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #threeCardsTitle {
+        color: #fefae0;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+        border: solid #fefae0;
+        border-radius: 25px;
+        padding: 10px 50px;
+        background-color: #DDA15E;
+        display: inline-block;
+    }
+</style>
