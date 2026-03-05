@@ -194,7 +194,7 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 </script>
 
 <style>
@@ -312,7 +312,7 @@
     }
 
     #heartSymbol {
-        background: url('images/heartSymbol.gif') center center no-repeat;
+        /* background: url('') center center no-repeat; */
         background-size: cover;
         -webkit-background-clip: text;
         background-clip: text;
@@ -321,7 +321,7 @@
     }
 
     #treeSymbol {
-        background: url('images/treeSymbol.gif') center center no-repeat;
+        /* background: url('') center center no-repeat; */
         background-size: cover;
         -webkit-background-clip: text;
         background-clip: text;
@@ -330,7 +330,7 @@
     }
 
     #hikingSymbol {
-        background: url('images/hikingSymbol.gif') center center no-repeat;
+        /* background: url('') center center no-repeat; */
         background-size: cover;
         -webkit-background-clip: text;
         background-clip: text;
@@ -339,7 +339,7 @@
     }
 
     #cloudSunSymbol {
-        background: url('images/cloudSun.gif') center center no-repeat;
+        /* background: url('') center center no-repeat; */
         background-size: cover;
         -webkit-background-clip: text;
         background-clip: text;

@@ -7,11 +7,11 @@
   </div>
 </template>
 
-<script setup>
-import Navbar from './components/Navbar.vue'
-import Landing from './components/Landing.vue'
-import Informationals from './components/Informationals.vue'
-import Footer from './components/Footer.vue'
+<script setup lang="ts">
+import Navbar from './components/NavbarComponent.vue'
+import Landing from './components/LandingComponent.vue'
+import Informationals from './components/InformationalsComponent.vue'
+import Footer from './components/FooterComponent.vue'
 </script>
 
 <style>
