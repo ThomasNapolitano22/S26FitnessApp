@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingComponent from '@/components/LandingComponent.vue'
-import InformationalsComponent from '@/components/InformationalsComponent.vue'
+import LandingPageView from '../views/LandingPageView.vue'
+import ActivityView from '../views/DashboardViews/ActivityView.vue'
+import FriendsActivity from '../views/DashboardViews/FriendsActivityView.vue'
+import SearchUsersView from '../views/DashboardViews/SearchUsersView.vue'
+import StatisticsView from '../views/DashboardViews/StatisticsView.vue'
+import ManageUsersView from '../views/AdminViews/ManageUsersView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,16 +12,34 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: LandingComponent,
+      component: LandingPageView,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: InformationalsComponent
+      path: '/activity',
+      name: 'activity',
+      component: ActivityView
     },
+    {
+      path: '/FriendsActivity',
+      name: 'FriendsActivity',
+      component: FriendsActivity
+    },
+    {
+      path: '/SearchUsers',
+      name: 'SearchUsers',
+      component: SearchUsersView
+    },
+    {
+      path: '/Statistics',
+      name: 'Statistics',
+      component: StatisticsView
+    },
+    {
+      path: '/ManageUsers',
+      name: 'ManageUsers',
+      component: ManageUsersView
+    }
+
   ],
 })
 

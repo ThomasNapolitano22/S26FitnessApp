@@ -1,16 +1,13 @@
 <template>
   <div class="app-container">
     <Navbar />
-    <Landing />
-    <Informationals />
+    <RouterView />
     <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import Navbar from './components/NavbarComponent.vue'
-import Landing from './components/LandingComponent.vue'
-import Informationals from './components/InformationalsComponent.vue'
 import Footer from './components/FooterComponent.vue'
 </script>
 
