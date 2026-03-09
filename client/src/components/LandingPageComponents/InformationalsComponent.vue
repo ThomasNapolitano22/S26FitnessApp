@@ -218,7 +218,7 @@
     }
 
     #testimonial {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
         color:hsl(52deg, 93.75%, 93.73%);
         padding: 60px 0;
         text-align: center;
@@ -304,7 +304,7 @@
     }
 
     #symbolsAndText {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/heroBackground.png');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/heroBackground.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -374,7 +374,7 @@
     #threeCardsSection {
         border-top: 1.5px solid #fefae0;
         /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/threeCardsBackground.jpg');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/threeCardsBackground.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
