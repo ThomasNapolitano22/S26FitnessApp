@@ -4,7 +4,7 @@
             <RouterLink class="navbar-item" to="/">
                 <img src="/images/NatureRunnerLogo.webp" alt="Nature Runner Logo" style="max-height: 4.5rem;">
             </RouterLink>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isActive = !isActive" :class="{ 'is-active': isActive}">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -12,7 +12,7 @@
             </a>
         </div>
     
-        <div class="navbar-menu">
+        <div class="navbar-menu" :class="{'is-active': isActive}">
             <div class="navbar-start">
                 <RouterLink class="navbar-item" to="/" id="homeButton"> Home </RouterLink>
                 <!-- <div class="navbar-item is-hoverable"> -->
@@ -71,6 +71,11 @@
 </template>
 
 <script setup lang="ts">
+    import { ref } from 'vue';
+    import { RouterLink } from 'vue-router';
+
+    const isActive = ref(false)
+
 </script>
 
 <style>
