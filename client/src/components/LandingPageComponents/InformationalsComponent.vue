@@ -218,7 +218,7 @@
     }
 
     #testimonial {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/victor-freitas-hOuJYX2K5DA-unsplash.webp');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/victor-freitas-hOuJYXK5DA-unsplash.webp');
         color:hsl(52deg, 93.75%, 93.73%);
         padding: 60px 0;
         text-align: center;
