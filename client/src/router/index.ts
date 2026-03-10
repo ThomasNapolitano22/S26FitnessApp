@@ -5,6 +5,7 @@ import FriendsActivity from '../views/DashboardViews/FriendsActivityView.vue'
 import SearchUsersView from '../views/DashboardViews/SearchUsersView.vue'
 import StatisticsView from '../views/DashboardViews/StatisticsView.vue'
 import ManageUsersView from '../views/AdminViews/ManageUsersView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/ManageUsers',
       name: 'ManageUsers',
       component: ManageUsersView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView
     }
 
   ],
