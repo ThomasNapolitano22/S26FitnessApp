@@ -106,7 +106,7 @@
             <div class="testimonial-grid container">
                 <div class="testimonial-card">
                     <span class="quote-icon top-quote">&ldquo;</span>
-                        <img src="/images/aiony-haust-3TLl_97HNJo-unsplash.jpg" alt="Member Profile" class="profile-img">
+                        <img src="/images/aiony-haust-3TLl_97HNJo-unsplash.webp" alt="Member Profile" class="profile-img">
                             <blockquote>
                                 I can't live without it!
                             </blockquote>
@@ -116,7 +116,7 @@
 
                 <div class="testimonial-card">
                     <span class="quote-icon top-quote">&ldquo;</span>
-                        <img src="/images/ian-dooley-d1UPkiFd04A-unsplash.jpg" alt="Member Profile" class="profile-img">
+                        <img src="/images/ian-dooley-d1UPkiFd04A-unsplash.webp" alt="Member Profile" class="profile-img">
                             <blockquote>
                                 This app makes it so easy to track all of my outdoor runs!
                             </blockquote>
@@ -126,7 +126,7 @@
 
                 <div class="testimonial-card">
                     <span class="quote-icon top-quote">&ldquo;</span>
-                        <img src="/images/richard-brutyo-Sg3XwuEpybU-unsplash.jpg" alt="Member Profile" class="profile-img">
+                        <img src="/images/richard-brutyo-Sg3XwuEpybU-unsplash.webp" alt="Member Profile" class="profile-img">
                             <blockquote>
                                 Woof Woof! Bark!
                             </blockquote>
@@ -143,7 +143,7 @@
             <div class="column is-one-third has-text-centered">
                 <div class="box p-3" style="overflow: hidden; border: 2px solid #BC6C25; background-color: rgba(0,0,0,0,0.5);">
                         <figure class="image is-16by9">
-                            <img src="/images/yoga.jpg" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%)">
+                            <img src="/images/yoga.webp" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%)">
                         </figure>
                         <div class="p-5">
                             <h3 class="title is-4">Yoga: A Guide to Meditation and Stress-Busting</h3>
@@ -160,7 +160,7 @@
             <div class="column is-one-third has-text-centered">
                 <div class="box p-3" style="overflow: hidden; border: 2px solid #BC6C25;">
                         <figure class="image is-16by9">
-                            <img src="/images/twoPeopleOnEquipment.jpg" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%)">
+                            <img src="/images/twoPeopleOnEquipment.webp" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%)">
                         </figure>
                         <div class="p-5">
                             <h3 class="title is-4">Inside the Gym: Nature Runners Take on Indoor Fitness</h3>
@@ -177,7 +177,7 @@
             <div class="column is-one-third has-text-centered">
                 <div class="box p-3" style="overflow: hidden; border: 2px solid #BC6C25;">
                         <figure class="image is-16by9">
-                            <img src="/images/groupOutside.jpg" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%);">
+                            <img src="/images/groupOutside.webp" alt="Runner Image" style="object-fit: cover; border-radius: 8px; border: 2px solid hsl(52deg, 93.75%, 93.73%)">
                         </figure>
                         <div class="p-5">
                             <h3 class="title is-4">Gatherings: Nature Runners Meet-Up </h3>
@@ -218,7 +218,7 @@
     }
 
     #testimonial {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/victor-freitas-hOuJYX2K5DA-unsplash.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/victor-freitas-hOuJYX2K5DA-unsplash.webp');
         color:hsl(52deg, 93.75%, 93.73%);
         padding: 60px 0;
         text-align: center;
@@ -304,7 +304,7 @@
     }
 
     #symbolsAndText {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/heroBackground.png');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/heroBackground.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -374,7 +374,7 @@
     #threeCardsSection {
         border-top: 1.5px solid #fefae0;
         /* background: linear-gradient(to bottom, rgba(22, 43, 25, 1) 10%, rgba(14, 43, 23, 1) 30%, rgba(7, 24, 15, 1) 60%, rgba(2, 11, 5, 1) 100%); */
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/threeCardsBackground.jpg');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/threeCardsBackground.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

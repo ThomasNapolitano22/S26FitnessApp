@@ -2,7 +2,7 @@
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <RouterLink class="navbar-item" to="/">
-                <img src="/images/NatureRunnerLogo.png" alt="Nature Runner Logo" style="max-height: 4.5rem;">
+                <img src="/images/NatureRunnerLogo.webp" alt="Nature Runner Logo" style="max-height: 4.5rem;">
             </RouterLink>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>

@@ -63,7 +63,7 @@
 <style>
     .footer {
         /* background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%); */
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/footerImage2.png');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/footerImage2.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
