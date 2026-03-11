@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation" id="mainNavBar">
         <div class="navbar-brand">
             <RouterLink class="navbar-item" to="/">
                 <img src="/images/NatureRunnerLogo.webp" alt="Nature Runner Logo" style="max-height: 4.5rem;">
@@ -81,5 +81,9 @@
 <style>
     .navbar-burger span {
         background-color: #DDA15E;
+    }
+
+    #mainNavBar {
+        border-bottom: solid #DDA15E;
     }
 </style>
