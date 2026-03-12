@@ -45,7 +45,6 @@ const router = createRouter({
       name: 'not-found',
       component: NotFoundView
     }
-
   ],
 })
 

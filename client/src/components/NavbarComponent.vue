@@ -48,7 +48,7 @@
                 <div class="navbar-item">
                     <div class="field is-grouped">
                         <p class="control">
-                            <a class="button is-primary" href="#">
+                            <a class="button is-primary" href="#" @click="toggleModal">
                                 <span class="icon" id="registerIcon">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </span>
@@ -56,7 +56,7 @@
                             </a>
                         </p>
                         <p class="control">
-                            <a class="button is-primary" href="#">
+                            <a class="button is-primary" href="#" @click="toggleModal">
                                 <span class="icon" id="loginIcon">
                                     <i class="fa-regular fa-address-card"></i>
                                 </span>
@@ -68,13 +68,67 @@
             </div>
         </div>
     </nav>
+
+    <Modal :modal-active="isModalActive" @close="toggleModal">
+        <div class="content">
+            <h2 class="title is-4"> Welcome Back! Please Login! </h2>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Enter Username...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Enter Password...">
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-key"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <hr />
+        <div class="content">
+            <h2 class="title is-4"> No Account? No Problem, Register Now!</h2>
+                <a class="button is-primary" href="#">
+                    <span class="icon" id="registerIcon">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </span>
+                    <span> Register Here! </span>
+                </a>
+        </div>
+        <hr />
+        <div class="content">
+            <h2 class="title is-4"> Or Select A Pre-Generated User Below!</h2>
+                <ul>
+                    <li>
+                        John Smith
+                    </li>
+                    <li>
+                        Albert
+                    </li>
+                </ul>
+        </div>
+    </Modal>
 </template>
 
 <script setup lang="ts">
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
+    import Modal from '@/components/ModalComponent.vue'
 
     const isActive = ref(false)
+    const isModalActive = ref(false)
+
+    const toggleModal = () => {
+        isModalActive.value = !isModalActive.value
+    }
 
 </script>
 
