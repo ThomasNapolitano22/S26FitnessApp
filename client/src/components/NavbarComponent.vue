@@ -92,6 +92,14 @@
                         </span>
                     </div>
                 </div>
+
+                <a class="button is-primary" href="#">
+                    <span class="icon" id="loginIcon">
+                        <i class="fa-regular fa-address-card"></i>
+                    </span>
+                    <span>Login</span>
+                </a>
+
             </div>
         <hr />
         <div class="content">
