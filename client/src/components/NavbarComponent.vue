@@ -105,7 +105,7 @@
                 <div class="field">
                     <label class="label">Password</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="Enter Password...">
+                        <input class="input" type="password" placeholder="Enter Password...">
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-key"></i>
                         </span>
