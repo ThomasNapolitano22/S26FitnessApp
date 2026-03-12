@@ -6,53 +6,36 @@
        </div>
        <hr class="has-background-white" id="lineBreak"/>
        <div class="section pt-0">
-           <div class="box is-flex is-flex-direction-column is-justify-content-space-between has-background-primary">
-               <div class="title has-text-centered has-text-black"> Today </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Distance: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div> <span class="is-size-3">Duration: </span> <span class="is-size-3 has-text-success"> num</span> </div>
-               </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Avg Pace: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div><span class="is-size-3">Calories: </span> <span class="is-size-3 has-text-success"> num </span></div>
-               </div>
-           </div>
-           <div class="box is-flex is-flex-direction-column is-justify-content-space-between has-background-primary">
-               <div class="title has-text-centered has-text-black"> This Week </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Distance: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div> <span class="is-size-3">Duration: </span> <span class="is-size-3 has-text-success"> num</span> </div>
-               </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Avg Pace: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div><span class="is-size-3">Calories: </span> <span class="is-size-3 has-text-success"> num </span></div>
-               </div>
-           </div>
-           <div class="box is-flex is-flex-direction-column is-justify-content-space-between has-background-primary">
-           <div class="title has-text-centered has-text-black"> All-Time </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Distance: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div> <span class="is-size-3">Duration: </span> <span class="is-size-3 has-text-success"> num</span> </div>
-               </div>
-               <div class="is-flex is-justify-content-space-between">
-                   <div><span class="is-size-3">Avg Pace: </span> <span class="is-size-3 has-text-success"> num </span></div>
-                   <div><span class="is-size-3">Calories: </span> <span class="is-size-3 has-text-success"> num </span></div>
-               </div>
-           </div>
-
-
+           <StatisticsCardComponent 
+                title="Today" 
+                distance="3.1" 
+                duration="25:00" 
+                avgPace="8:03" 
+                calories="320" 
+            />
+            <StatisticsCardComponent 
+                title="This Week" 
+                distance="12.4" 
+                duration="1:45:00" 
+                avgPace="8:28" 
+                calories="1450" 
+            />
+            <StatisticsCardComponent 
+                title="All-Time" 
+                distance="156.2" 
+                duration="22:30:00" 
+                avgPace="8:40" 
+                calories="18200" 
+            />
        </div>
-
-
-   </div>
+    </div>
 </template>
 
-<style>
+<script setup lang="ts">
+    import StatisticsCardComponent from '@/components/StatisticsPageCompnonents/StatisticsCardComponent.t.vue';
+</script>
 
-    #buttonBox{
-        background-color: #DDA15E;
-    }
-
+<style scoped>
     #headerBox{
         background-color: #DDA15E;
     }

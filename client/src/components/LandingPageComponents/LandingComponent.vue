@@ -35,7 +35,7 @@
 <script setup lang="ts">
 </script>
 
-<style>
+<style scoped>
     #welcomeTitle {
         color:hsl(52deg, 93.75%, 93.73%);
     }

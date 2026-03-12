@@ -6,14 +6,19 @@
         </div>
         <hr class="has-background-white" id="lineBreak"/>
         <div class="section has-text-centered columns is-centered">
-            <div class="box has-text-centered column is-one-third p-5  is-centered" id="buttonBox">
-                <button class="button is-medium is-primary"> Add New Exercise! </button>
-            </div>
+            <AddExerciseButtonCompnent />
         </div>
 
     </div>
 </template>
 
-<style>
+<script setup lang="ts">
+    import AddExerciseButtonCompnent from '@/components/ActivityPageComponents/AddExerciseButtonCompnent.vue';
 
+</script>
+
+<style scoped>
+    #headerBox{
+        background-color: #DDA15E;
+    }
 </style>

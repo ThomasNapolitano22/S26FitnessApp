@@ -197,7 +197,7 @@
 <script setup lang="ts">
 </script>
 
-<style>
+<style scoped>
     #fourLogoInfo {
         border-top: 1.5px solid #fefae0;
         border-bottom: 1.5px solid #fefae0;
