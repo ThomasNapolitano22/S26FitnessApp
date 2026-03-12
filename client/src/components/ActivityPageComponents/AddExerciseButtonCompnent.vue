@@ -45,7 +45,4 @@ const toggleModal = () => {
     #modalBanner {
         background-color: #BC6C25;
     }
-    #modalBox{
-        background-color: blue;
-    }
 </style>

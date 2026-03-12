@@ -67,7 +67,7 @@
                     
                     <div class="field is-grouped is-align-items-center" v-else>
                         <figure class="image is-32x32 mr-3">
-                            <img :src="authStore.currentUser?.icon" alt="Profile" class="is-rounded" style="object-fit: cover; height: 100%; width: 100%; border: 2px solid #DDA15E;">
+                            <img :src="authStore.currentUser?.icon" class="is-rounded" id="navbarProfileIcon">
                         </figure>
                         <span class="has-text-weight-bold mr-4"> {{ authStore.currentUser?.name }} </span>
                         <p class="control">
@@ -140,8 +140,8 @@
                         class="button is-primary is-outlined"
                         @click="handeLogin(user.id)"
                     >
-                    <figure class="image is-32x32 mr-2 mb-0">
-                        <img :src="user.icon" alt="Profile" class="is-rounded" style="object-fit: cover; height: 100%; width: 100%;">
+                    <figure class="image is-32x32 mr-3">
+                        <img :src="user.icon" class="is-rounded modalUserImage" >
                     </figure>
                     <span>{{ user.name }} <strong v-if="user.isAdmin" class="has-text-danger ml-1">(Admin)</strong></span>
                     </button>
@@ -185,4 +185,20 @@
     #mainNavBar {
         border-bottom: solid #DDA15E;
     }
+
+    #navbarProfileIcon {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border: 2px solid #DDA15E;
+    }
+
+   
+
+    .modalUserButton figure {
+        flex-shrink: 0;
+    }
+
+    
+
 </style>
