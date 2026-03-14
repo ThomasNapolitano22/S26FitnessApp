@@ -19,7 +19,11 @@ export const useActivityStore = defineStore('activity', () => {
         exercises.value.push({ ...exerciseData, id: nextId++ })
     }
 
+    function deleteExercise(id: number) {
+    exercises.value = exercises.value.filter(exercise => exercise.id !== id)
+  }
 
 
-    return { exercises, addExercise }
+
+    return { exercises, addExercise, deleteExercise }
 })
