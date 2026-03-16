@@ -1,5 +1,5 @@
 <template>
-    <div class="section">
+    <div class="section" v-if="authStore.isLoggedIn">
         <div class="box" id="headerBox">
             <h1 class="title is-spaced has-text-primary has-text-centered">Admin Control Panel</h1>
             <h2 class="subtitle has-text-centered has-text-primary"> Manage Nature Runner Users </h2>
@@ -63,6 +63,11 @@
             </div>
         </div>
     </div>
+    <div v-else class="section" id="notLoggedIn">
+        <div class="notification is-warning has-text-centered mx-auto" style="max-width: 600px;">
+            <strong>You must be logged in as an admin to view this page.</strong> Please log in with an admin account to access this page.
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -114,6 +119,13 @@ const authStore = useAuthStore()
 
     tbody tr:hover td {
         background-color: #faedcd; 
+    }
+
+    #notLoggedIn {
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
     }
 
 </style>

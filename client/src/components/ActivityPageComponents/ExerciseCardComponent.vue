@@ -1,11 +1,11 @@
 <template>
     <div class="box exercise-card is-flex is-flex-direction-column">
         
-        <div class="is-flex is-align-items-center mb-3 pb-3" style="border-bottom: 1px solid rgba(188, 108, 37, 0.3);">
-            <figure class="image is-32x32 mr-3 mb-0" style="flex-shrink: 0;">
-                <img :src="author?.icon" alt="Profile" class="is-rounded profile-img-card">
+        <div class="is-flex is-align-items-center mb-3 pb-3 exercise-author-row">
+            <figure class="image is-32x32 mr-3 mb-0 exercise-author-avatar-wrap">
+                <img :src="author?.icon" class="is-rounded profile-img-card">
             </figure>
-            <span class="has-text-weight-bold" style="color: #283618;">
+            <span class="has-text-weight-bold exercise-author-name">
                 {{ author?.name || 'Unknown User' }}
             </span>
         </div>
@@ -109,6 +109,18 @@ const handleDelete = () => {
     }
 
     .exercise-title {
+        color: #283618;
+    }
+
+    .exercise-author-row {
+        border-bottom: 1px solid rgba(188, 108, 37, 0.3);
+    }
+
+    .exercise-author-avatar-wrap {
+        flex-shrink: 0;
+    }
+
+    .exercise-author-name {
         color: #283618;
     }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="section">
+    <div class="section" v-if="authStore.isLoggedIn">
         <div class="box" id="headerBox">
             <h1 class="title is-spaced has-text-primary has-text-centered">Your Activity</h1>
             <h2 class="subtitle has-text-centered has-text-primary"> Add New Exercises, and View Past Ones! </h2>
@@ -30,6 +30,11 @@
         </div>
 
     </div>
+    <div v-else class="section" id="notLoggedIn">
+        <div class="notification is-warning has-text-centered mx-auto" style="max-width: 600px;">
+            <strong>You must be logged in to view this page.</strong> Please log in to access your activity dashboard.
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -52,5 +57,11 @@
 <style scoped>
     #headerBox{
         background-color: #DDA15E;
+    }
+    #notLoggedIn {
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="section">
+    <div class="section" v-if="authStore.isLoggedIn">
         <div class="box" id="headerBox">
             <h1 class="title is-spaced has-text-primary has-text-centered">Search Users</h1>
             <h2 class="subtitle has-text-centered has-text-primary"> Find fellow Nature Runners to connect with! </h2>
@@ -42,9 +42,13 @@
             </div>
         </div>
     </div>
-    <div>
 
+    <div v-else class="section" id="notLoggedIn">
+        <div class="notification is-warning has-text-centered mx-auto" style="max-width: 600px;">
+            <strong>You must be logged in to view this page.</strong> Please log in to search for users!
+        </div>
     </div>
+    
 </template>
 
 <script setup lang="ts">
@@ -88,5 +92,12 @@ const filteredUsers = computed(() => {
         border-color: #283618;
         box-shadow: 0 0 0 0.15em rgba(40, 54, 24, 0.25);
         outline: none;
+    }
+    
+    #notLoggedIn {
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
     }
 </style>

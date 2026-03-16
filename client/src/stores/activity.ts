@@ -22,7 +22,7 @@ export const useActivityStore = defineStore('activity', () => {
       title: 'Morning Park Jog',
       description: 'A brisk run through the city park to wake up. The weather was perfect!',
       category: 'Cardio',
-      date: '2026-03-14',
+      date: '03-14-2026',
       location: 'Central Park',
       duration: '30',
       calories: '200',
@@ -31,11 +31,11 @@ export const useActivityStore = defineStore('activity', () => {
     {
       id: 2,
       userId: 3, 
-      title: 'Chasing the Mailman',
-      description: 'Sprinted around the yard for a good 15 minutes. Best workout ever. Bark!',
+      title: 'Intense Backyard Sprints',
+      description: 'Sprinted around the yard for a good 15 minutes. Best workout ever.',
       category: 'Cardio',
-      date: '2026-03-15',
-      location: 'Front Yard',
+      date: '03-15-2026',
+      location: 'Backyard',
       duration: '15',
       calories: '150'
     },
@@ -45,7 +45,7 @@ export const useActivityStore = defineStore('activity', () => {
       title: 'Dumbbell Circuit',
       description: 'Got a quick strength session in before heading out for the day.',
       category: 'Strength',
-      date: '2026-03-15',
+      date: '05-20-2026',
       location: 'Home Gym',
       duration: '45',
       calories: '350'  
