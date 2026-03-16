@@ -23,6 +23,20 @@
                         <textarea class="textarea" placeholder="Enter Description..." v-model="newExercise.description"></textarea>
                     </div>
                 </div>
+                
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                        <label class="exerciseTitle">Duration</label>
+                        <input class="input mt-2" type="text" placeholder="How many minutes?" v-model="newExercise.duration" required>
+                    </div>
+
+                    <div class="control is-expanded">
+                        <label class="exerciseTitle">Calories Burned</label>
+                        <input class="input mt-2" type="number" placeholder="How many calories burned?" v-model="newExercise.calories" required>
+                    </div>
+                </div>
+
+                
 
                 <div class="field">
                     <label class="exerciseTitle">Category</label>
@@ -36,6 +50,13 @@
                             </select>
                         </div>
                     </div>
+                </div>
+
+                <div class="field" v-if="newExercise.category === 'Cardio'">
+                    <label class="exerciseTitle">Distance</label>
+                        <div class="control mt-2">
+                            <input class="input" type="text" placeholder="e.g. 3 miles" v-model="newExercise.distance">
+                        </div>
                 </div>
                 
                 <div class="field">
@@ -106,7 +127,10 @@ const newExercise = reactive({
   description: '',
   category: '',
   date: '',
-  location: ''
+  location: '',
+  duration: '',
+  distance: '',
+  calories: ''
 })
 
 const submitExercise = () => {
@@ -120,7 +144,10 @@ const submitExercise = () => {
     description: newExercise.description,
     category: newExercise.category,
     date: newExercise.date,
-    location: newExercise.location
+    location: newExercise.location,
+    duration: newExercise.duration,
+    calories: newExercise.calories,
+    distance: newExercise.category === 'Cardio' ? newExercise.distance : undefined
    })
 
     newExercise.title = ''
@@ -128,6 +155,9 @@ const submitExercise = () => {
     newExercise.category = ''
     newExercise.date = ''
     newExercise.location = ''
+    newExercise.duration = ''
+    newExercise.calories = ''
+    newExercise.distance = ''
 
   toggleModal()
 }

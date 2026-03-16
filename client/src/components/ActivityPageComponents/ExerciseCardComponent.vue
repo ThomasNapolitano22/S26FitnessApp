@@ -11,9 +11,11 @@
         </div>
 
         <div class="card-header-wrapper mb-2">
-            <h4 class="title is-4 exercise-title mb-0">{{  exercise.title }}</h4>
-            
-            <button class="button is-danger is-small is-outlined delete-btn" @click="handleDelete" title="Delete Exercise">
+            <div>
+                <h4 class="title is-4 exercise-title mb-0">{{  exercise.title }} </h4>
+                <h3 class="title is-6 has-text-black mb-0"> On {{ exercise.date }}</h3>
+            </div>
+            <button v-if="!friendsView" class="button is-danger is-small is-outlined delete-btn" @click="handleDelete" title="Delete Exercise">
                 <span class="icon is-small">
                     <i class="fa-solid fa-trash"></i>
                 </span>
@@ -27,7 +29,19 @@
                 <i class="fa-solid fa-spa mr-1" v-if="exercise.category === 'Yoga'"></i>
                 {{ exercise.category || 'Uncategorized' }}
             </span>
-            <span class="is-size-7 has-text-weight-semibold">{{ exercise.date }}</span>
+
+            <span class="tag is-rounded is-light is-info">
+                <i class="fa-regular fa-clock mr-1"></i> {{ exercise.duration }} Minutes
+            </span>
+
+            <span class="tag is-rounded is-light is-danger">
+                <i class="fa-solid fa-fire-flame-curved mr-1"></i> {{ exercise.calories }} Calories
+            </span>
+    
+            <span class="tag is-rounded is-light is-success" v-if="exercise.distance">
+                <i class="fa-solid fa-road mr-1"></i> {{ exercise.distance }} Miles
+            </span>
+
         </div>
 
         <p class="mb-4">
@@ -49,13 +63,14 @@ import { useAuthStore } from '@/stores/auth'
 
 const props = defineProps<{
     exercise: Exercise
+    friendsView?: boolean
 }>()
 
 const activityStore = useActivityStore()
 const authStore = useAuthStore()
 
 const author = computed(() => {
-    return authStore.currentUser
+    return authStore.users.find(u => u.id === props.exercise.userId)
 })
 
 const handleDelete = () => {
@@ -96,8 +111,6 @@ const handleDelete = () => {
     .exercise-title {
         color: #283618;
     }
-
-
 
     .category-tag {
         background-color: #DDA15E;
