@@ -1,0 +1,31 @@
+{
+  "users": [
+  {
+    "id": 1,
+    "name": "Thomas Napolitano",
+    "username": "tnapolitano",
+    "email": "thomas@naturerunner.com",
+    "password": "password123",
+    "isAdmin": true,
+    "icon": "/images/richard-brutyo-Sg3XwuEpybU-unsplash.webp"
+  },
+  {
+    "id": 2,
+    "name": "John Doe",
+    "username": "jdoe99",
+    "email": "john@example.com",
+    "password": "password123",
+    "isAdmin": false,
+    "icon": "/images/ian-dooley-d1UPkiFd04A-unsplash.webp"
+  },
+  {
+    "id": 3,
+    "name": "Mike Wazowski",
+    "username": "mwazowski",
+    "email": "mike@monstersinc.com",
+    "password": "password123",
+    "isAdmin": false,
+    "icon": "/images/mikepfp.webp"
+  }
+]
+}

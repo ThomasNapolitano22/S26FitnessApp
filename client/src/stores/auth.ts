@@ -1,35 +1,19 @@
-import {ref, computed} from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-
-export interface User {
-    id: number
-    name: string
-    isAdmin: boolean
-    icon: string
-}
+import { api } from '../services/myFetch'
+import type { User, DataListEnvelope } from '../../../server/types'
 
 export const useAuthStore = defineStore('auth', () => {
-    const users = ref<User[]>([
-        {
-            id: 1,
-            name: 'Thomas Napolitano',
-            isAdmin: true,
-            icon: '/images/richard-brutyo-Sg3XwuEpybU-unsplash.webp'
-        },
-        {
-            id: 2,
-            name: 'John Doe',
-            isAdmin: false,
-            icon: '/images/ian-dooley-d1UPkiFd04A-unsplash.webp'
-        },
-        {
-            id: 3,
-            name: 'Mike Wazowski',
-            isAdmin: false,
-            icon: '/images/mikepfp.webp'
-        }
+    // Start with an empty array
+    const users = ref<User[]>([])
 
-    ])
+    // Fetch the real users from our Express backend!
+    api<DataListEnvelope<User>>('users').then((response) => {
+        console.log("Data from server:", response) // Professor's test log!
+        if (response.isSuccess) {
+            users.value = response.data
+        }
+    })
 
     const currentUser = ref<User | null>(null)
 
@@ -47,12 +31,12 @@ export const useAuthStore = defineStore('auth', () => {
         currentUser.value = null
     }
 
-        return {
-            users,
-            currentUser,
-            isLoggedIn,
-            isAdmin,
-            login,
-            logout
-        }
-    })
+    return {
+        users,
+        currentUser,
+        isLoggedIn,
+        isAdmin,
+        login,
+        logout
+    }
+})
