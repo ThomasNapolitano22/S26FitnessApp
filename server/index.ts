@@ -1,6 +1,6 @@
 import express from "express"
-// import usersController from "./controllers/users"
-// import { DataEnvelope } from "./types"
+import usersController from "./controllers/users"
+import { DataEnvelope } from "./types"
 
 const PORT = 3000
 const SERVER = "localhost"
@@ -19,8 +19,7 @@ app.use((_req, res, next) => {
 app.get("/", (_req, res) => {
     res.send("Welcome to the Nature Runner API!")
 })
-    
-// .use("/api/v1/users", usersController)
+.use("/api/v1/users", usersController)
 
 app.use(
     (
@@ -31,7 +30,7 @@ app.use(
     ) => {
         console.error(err)
 
-        const response: any = {
+        const response: DataEnvelope<null> = {
             data: null,
             isSuccess: false,
             message: err.message ?? "An error occurred",
