@@ -1,4 +1,13 @@
-export type { DataEnvelope, DataListEnvelope, PagingRequest } from "./dataEnvelopes"
+export interface DataEnvelope<T> {
+    data: T
+    isSuccess: boolean
+    message?: string
+}
+
+export interface DataListEnvelope<T> extends DataEnvelope<T[]> {
+    total: number
+}
+
 export interface User {
     id: string
     name: string
@@ -6,10 +15,6 @@ export interface User {
     email: string
     isAdmin: boolean
     icon: string | null
-    createdAt?: string
-}
-export interface UserWithHash extends User {
-    passwordHash: string
 }
 
 export interface ExerciseType {
@@ -30,8 +35,6 @@ export interface Activity {
     durationMinutes: number
     calories: number | null
     distanceMiles: number | null
-}
-export interface ActivityWithDetails extends Activity {
     exerciseTypeName?: string
     category?: string
     authorName?: string
@@ -39,25 +42,18 @@ export interface ActivityWithDetails extends Activity {
     authorIcon?: string | null
 }
 
-export type FriendStatus = "pending" | "accepted" | "declined"
+export type FriendStatus = 'pending' | 'accepted' | 'declined'
 
 export interface Friend {
     id: string
     requesterId: string
     addresseeId: string
     status: FriendStatus
-    createdAt?: string
-}
-export interface FriendWithUser extends Friend {
     friend: User
 }
-export interface JwtPayload {
-    id: string
-    username: string
-    isAdmin: boolean
-}
+
 export interface ActivityStats {
-    period: "today" | "week" | "alltime"
+    period: 'today' | 'week' | 'alltime'
     totalActivities: number
     totalDurationMinutes: number
     totalCalories: number

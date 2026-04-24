@@ -1,0 +1,85 @@
+### Nature Runner — REST Client scratch file
+### Install "REST Client" extension in VS Code to run these.
+
+@baseUrl = http://localhost:3000/api/v1
+@token = paste-token-here
+
+### Health
+GET {{baseUrl}}
+
+### Sign up a new user
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+    "name": "Thomas Napolitano",
+    "username": "thomas",
+    "email": "thomas@example.com",
+    "password": "secret123",
+    "icon": "🏃"
+}
+
+### Log in (username or email works for loginId)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "loginId": "thomas",
+    "password": "secret123"
+}
+
+### Who am I?
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### List exercise types (any logged-in user)
+GET {{baseUrl}}/exercise-types
+Authorization: Bearer {{token}}
+
+### Create an activity (user_id is taken from your JWT, not the body)
+POST {{baseUrl}}/activities
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "exerciseTypeId": "paste-an-exercise-type-id",
+    "title": "Morning Park Jog",
+    "description": "A brisk run through the city park",
+    "date": "2026-04-23",
+    "location": "Central Park",
+    "durationMinutes": 30,
+    "calories": 200,
+    "distanceMiles": 3
+}
+
+### List my activities
+GET {{baseUrl}}/activities
+Authorization: Bearer {{token}}
+
+### Feed (own + accepted friends')
+GET {{baseUrl}}/activities/feed
+Authorization: Bearer {{token}}
+
+### Stats
+GET {{baseUrl}}/activities/stats?period=week
+Authorization: Bearer {{token}}
+
+### Search users
+GET {{baseUrl}}/users/search?q=thom
+Authorization: Bearer {{token}}
+
+### Send friend request
+POST {{baseUrl}}/friends/request/paste-other-user-id
+Authorization: Bearer {{token}}
+
+### My friends
+GET {{baseUrl}}/friends
+Authorization: Bearer {{token}}
+
+### My incoming friend requests
+GET {{baseUrl}}/friends/requests
+Authorization: Bearer {{token}}
+
+### Admin: list all users (only works if your JWT is for an admin)
+GET {{baseUrl}}/users
+Authorization: Bearer {{token}}
