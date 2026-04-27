@@ -1,70 +1,90 @@
-import express from 'express'
-import * as usersModel from '../models/users'
-import { DataEnvelope, DataListEnvelope, User } from '../types'
+import express from "express"
+import * as usersModel from "../models/users"
+import requireAuth from "../middleware/requireAuth"
+import requireAdmin from "../middleware/requireAdmin"
+import type { DataEnvelope, DataListEnvelope, User } from "../types"
 
 const router = express.Router()
 
 router
-    .get('/', (req, res, next) => {
+    .get("/", requireAuth, requireAdmin, async (req, res, next) => {
         try {
-            // Pass the query parameters (like ?page=1&search=thomas) to the model
-            const { users, count } = usersModel.getAll(req.query)
-            
+            const { users, count } = await usersModel.getAll(req.query)
             const response: DataListEnvelope<User> = {
                 data: users,
                 total: count,
-                isSuccess: true
+                isSuccess: true,
             }
             res.send(response)
         } catch (error) {
             next(error)
         }
     })
-    .get('/:id', (req, res, next) => {
+    .get("/search", requireAuth, async (req, res, next) => {
         try {
-            const user = usersModel.get(Number(req.params.id))
-            const response: DataEnvelope<User> = {
-                data: user,
-                isSuccess: true
+            const q = String(req.query.q ?? "").trim()
+            if (!q) {
+                const response: DataListEnvelope<User> = {
+                    data: [],
+                    total: 0,
+                    isSuccess: true,
+                }
+                res.send(response)
+                return
+            }
+            const users = await usersModel.search(q)
+            const response: DataListEnvelope<User> = {
+                data: users,
+                total: users.length,
+                isSuccess: true,
             }
             res.send(response)
         } catch (error) {
             next(error)
         }
     })
-    .post('/', (req, res, next) => {
+    .get("/:id", requireAuth, async (req, res, next) => {
         try {
-            const newUser = usersModel.create(req.body)
-            const response: DataEnvelope<User> = {
-                data: newUser,
-                isSuccess: true,
-                message: "User created successfully"
-            }
-            res.status(201).send(response)
+            const user = await usersModel.get(String(req.params.id))
+            const response: DataEnvelope<User> = { data: user, isSuccess: true }
+            res.send(response)
         } catch (error) {
             next(error)
         }
     })
-    .patch('/:id', (req, res, next) => {
+    .patch("/:id", requireAuth, async (req, res, next) => {
         try {
-            const updatedUser = usersModel.update(Number(req.params.id), req.body)
+            const targetId = String(req.params.id)
+            const caller = req.user!
+
+            if (caller.id !== targetId && !caller.isAdmin) {
+                throw Object.assign(
+                    new Error("You can only update your own profile"),
+                    { status: 403 },
+                )
+            }
+
+            const patch = { ...req.body }
+            if (!caller.isAdmin) delete patch.isAdmin
+
+            const updated = await usersModel.update(targetId, patch)
             const response: DataEnvelope<User> = {
-                data: updatedUser,
+                data: updated,
                 isSuccess: true,
-                message: "User updated successfully"
+                message: "User updated",
             }
             res.send(response)
         } catch (error) {
             next(error)
         }
     })
-    .delete('/:id', (req, res, next) => {
+    .delete("/:id", requireAuth, requireAdmin, async (req, res, next) => {
         try {
-            const removedUser = usersModel.remove(Number(req.params.id))
+            const removed = await usersModel.remove(String(req.params.id))
             const response: DataEnvelope<User> = {
-                data: removedUser,
+                data: removed,
                 isSuccess: true,
-                message: "User deleted successfully"
+                message: "User deleted",
             }
             res.send(response)
         } catch (error) {

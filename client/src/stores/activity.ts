@@ -1,70 +1,111 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-
-export interface Exercise {
-    id: number
-    userId: number
-    title: string
-    description: string
-    category: string
-    date: string
-    location: string
-    duration: string
-    calories: string
-    distance?: string
-}
+import { api } from '../services/myFetch'
+import type {
+    Activity,
+    ActivityStats,
+    DataEnvelope,
+    DataListEnvelope,
+} from '../types'
 
 export const useActivityStore = defineStore('activity', () => {
-    const exercises = ref<Exercise[]>([
-    {
-      id: 1,
-      userId: 2, 
-      title: 'Morning Park Jog',
-      description: 'A brisk run through the city park to wake up. The weather was perfect!',
-      category: 'Cardio',
-      date: '03-14-2026',
-      location: 'Central Park',
-      duration: '30',
-      calories: '200',
-      distance: '3'
-    },
-    {
-      id: 2,
-      userId: 3, 
-      title: 'Intense Backyard Sprints',
-      description: 'Sprinted around the yard for a good 15 minutes. Best workout ever.',
-      category: 'Cardio',
-      date: '03-15-2026',
-      location: 'Backyard',
-      duration: '15',
-      calories: '150'
-    },
-    {
-      id: 3,
-      userId: 1, 
-      title: 'Dumbbell Circuit',
-      description: 'Got a quick strength session in before heading out for the day.',
-      category: 'Strength',
-      date: '05-20-2026',
-      location: 'Home Gym',
-      duration: '45',
-      calories: '350'  
-    }
-    ])
+    const myActivities = ref<Activity[]>([])
+    const feed = ref<Activity[]>([])
+    const stats = ref<ActivityStats | null>(null)
+    const isLoading = ref(false)
+    const error = ref<string | null>(null)
 
-
-
-    let nextId = 4
-    
-    function addExercise(exerciseData: Omit<Exercise, 'id'>) {
-        exercises.value.push({ ...exerciseData, id: nextId++ })
+    function setError(e: unknown) {
+        error.value = e instanceof Error ? e.message : String(e)
     }
 
-    function deleteExercise(id: number) {
-    exercises.value = exercises.value.filter(exercise => exercise.id !== id)
-  }
+    async function fetchMine(): Promise<void> {
+        isLoading.value = true
+        error.value = null
+        try {
+            const res = await api<DataListEnvelope<Activity>>('activities')
+            myActivities.value = res.data
+        } catch (e) {
+            setError(e)
+        } finally {
+            isLoading.value = false
+        }
+    }
 
+    async function fetchFeed(): Promise<void> {
+        isLoading.value = true
+        error.value = null
+        try {
+            const res = await api<DataListEnvelope<Activity>>('activities/feed')
+            feed.value = res.data
+        } catch (e) {
+            setError(e)
+        } finally {
+            isLoading.value = false
+        }
+    }
 
+    async function fetchStats(
+        period: 'today' | 'week' | 'alltime',
+    ): Promise<ActivityStats | null> {
+        try {
+            const res = await api<DataEnvelope<ActivityStats>>(
+                `activities/stats?period=${period}`,
+            )
+            stats.value = res.data
+            return res.data
+        } catch (e) {
+            setError(e)
+            return null
+        }
+    }
 
-    return { exercises, addExercise, deleteExercise }
+    async function createActivity(input: {
+        exerciseTypeId: string
+        title: string
+        description?: string
+        date: string
+        location?: string
+        durationMinutes: number
+        calories?: number
+        distanceMiles?: number | null
+    }): Promise<void> {
+        const res = await api<DataEnvelope<Activity>>('activities', {
+            method: 'POST',
+            body: input,
+        })
+        myActivities.value = [res.data, ...myActivities.value]
+    }
+
+    async function deleteActivity(id: string): Promise<void> {
+        await api<DataEnvelope<Activity>>(`activities/${id}`, { method: 'DELETE' })
+        myActivities.value = myActivities.value.filter((a) => a.id !== id)
+        feed.value = feed.value.filter((a) => a.id !== id)
+    }
+
+    async function updateActivity(
+        id: string,
+        patch: Partial<Activity>,
+    ): Promise<void> {
+        const res = await api<DataEnvelope<Activity>>(`activities/${id}`, {
+            method: 'PATCH',
+            body: patch,
+        })
+        const idx = myActivities.value.findIndex((a) => a.id === id)
+        if (idx >= 0) myActivities.value[idx] = { ...myActivities.value[idx], ...res.data }
+    }
+
+    return {
+        myActivities,
+        feed,
+        stats,
+        isLoading,
+        error,
+        fetchMine,
+        fetchFeed,
+        fetchStats,
+        createActivity,
+        deleteActivity,
+        updateActivity,
+    }
 })

@@ -5,16 +5,6 @@
         </div>
 
         <div class="columns has-text-centered">
-            <!-- <div class="column is-one-third">
-                <h4 class="bd-footer-title"> About Us </h4>
-                    <ul id="footerColumn1">
-                        <li class="mb-1"><a class="has-text-white has-text-weight-light is-small" href="#">Our Mission</a></li>
-                        <li class="mb-1"><a class="has-text-white has-text-weight-light" href="#">Our Goals</a></li>
-                        <li class="mb-1"><a class="has-text-white has-text-weight-light" href="#">Your Exercises</a></li>
-                        <li> <a class="has-text-white has-text-weight-light" href="#"> FAQ </a></li>
-                    </ul>
-            </div> -->
-
             <div class="column is-one-half">
                 <h4 class="bd-footer-title"> Ready to Join? </h4>
                     <ul id="footerColumn2">
@@ -62,7 +52,6 @@
 
 <style>
     .footer {
-        /* background: linear-gradient(to bottom,rgba(54, 68, 32, 1) 0%, rgba(47, 61, 28, 1) 50%, rgba(40, 54, 24, 1) 100%); */
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/footerImage2.webp');
         background-size: cover;
         background-position: center;
