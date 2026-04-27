@@ -13,6 +13,10 @@ app.use(createPinia())
 app.use(router)
 
 const auth = useAuthStore()
-auth.init().finally(() => {
+auth.init().finally(async () => {
+    await router.isReady()
+    if (router.currentRoute.value.path !== '/') {
+        await router.replace('/')
+    }
     app.mount('#app')
 })
