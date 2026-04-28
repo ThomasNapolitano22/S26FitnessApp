@@ -5,7 +5,7 @@
                 <div id="authHeader">
                     <h1 class="title has-text-centered mb-2 auth-title">Welcome Back</h1>
                     <p class="subtitle has-text-centered mb-0 auth-subtitle">
-                        Log in to keep tracking your nature runs
+                        Log in to start tracking all your exercises!
                     </p>
                 </div>
 
