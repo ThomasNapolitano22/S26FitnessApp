@@ -23,12 +23,11 @@ import Footer from './components/FooterComponent.vue'
   html,
   body,
   #app {
-    height: 100%;
     margin: 0;
+    min-height: 100%;
   }
 
   body {
-    background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%) !important;
     font-family: "Noto Serif", serif;
   }
 
@@ -36,6 +35,7 @@ import Footer from './components/FooterComponent.vue'
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%);
   }
 
   .app-main {
