@@ -5,7 +5,7 @@
                 <div id="authHeader">
                     <h1 class="title has-text-centered mb-2 auth-title">Create Your Account</h1>
                     <p class="subtitle has-text-centered mb-0 auth-subtitle">
-                        Join the Nature Runner community
+                        Join the Nature Runner Community!
                     </p>
                 </div>
 
