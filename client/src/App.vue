@@ -1,7 +1,9 @@
 <template>
   <div class="app-container">
     <Navbar />
-    <RouterView />
+    <main class="app-main">
+      <RouterView />
+    </main>
     <Footer />
   </div>
 </template>
@@ -18,17 +20,32 @@ import Footer from './components/FooterComponent.vue'
     --bulma-primary-l: 93.73%
   }
 
-  body {
-    background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%) !important;  
-    min-height: 100vh;
+  html,
+  body,
+  #app {
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    min-height: 100%;
+  }
+
+  body {
     font-family: "Noto Serif", serif;
   }
 
-  .section {
-    flex: 1;
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,rgba(96, 108, 56, 1) 0%, rgba(82, 95, 48, 1) 50%, rgba(68, 81, 40, 1) 100%);
+  }
+
+  .app-main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-main > .section {
+    flex: 1 0 auto;
   }
 
 </style>
