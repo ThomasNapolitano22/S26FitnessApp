@@ -35,18 +35,41 @@
                 {{ activityStore.error }}
             </div>
 
+            <div class="has-text-centered has-text-white mb-3"
+                 v-if="activityStore.feedTotal > 0">
+                Showing {{ activityStore.feed.length }} of {{ activityStore.feedTotal }}
+            </div>
+
             <div class="columns is-multiline">
                 <div class="column is-one-third"
                      v-for="activity in activityStore.feed"
                      :key="activity.id">
                     <ExerciseCard :activity="activity" />
                 </div>
+
+                <template v-if="activityStore.isLoading">
+                    <div class="column is-one-third" v-for="n in 3" :key="`skeleton-${n}`">
+                        <div class="box">
+                            <div class="skeleton-lines">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
 
             <div class="notification is-warning has-text-centered mt-4"
                  v-if="!activityStore.isLoading && activityStore.feed.length === 0">
                 Add a friend from the Search Users page — then their activities will
                 show up here alongside yours!
+            </div>
+
+            <div class="has-text-centered has-text-white mt-4"
+                 v-if="activityStore.feedDone && activityStore.feed.length > 0">
+                You're all caught up!
             </div>
         </div>
     </div>
@@ -61,6 +84,7 @@
 
 <script setup lang="ts">
     import { onMounted } from 'vue'
+    import { useInfiniteScroll } from '@vueuse/core'
     import ExerciseCard from '@/components/ActivityPageComponents/ExerciseCardComponent.vue'
     import { useActivityStore } from '@/stores/activity'
     import { useAuthStore } from '@/stores/auth'
@@ -70,16 +94,27 @@
     const authStore = useAuthStore()
     const friendsStore = useFriendsStore()
 
+    useInfiniteScroll(
+        window,
+        () => activityStore.fetchNextFeedPage(),
+        {
+            distance: 200,
+            canLoadMore: () => !activityStore.feedDone && !activityStore.isLoading,
+        },
+    )
+
     async function respond(id: string, action: 'accept' | 'decline') {
         if (action === 'accept') await friendsStore.accept(id)
         else await friendsStore.decline(id)
-        await activityStore.fetchFeed()
+        activityStore.resetFeed()
+        await activityStore.fetchNextFeedPage()
     }
 
     onMounted(async () => {
         if (authStore.isLoggedIn) {
+            activityStore.resetFeed()
             await Promise.all([
-                activityStore.fetchFeed(),
+                activityStore.fetchNextFeedPage(),
                 friendsStore.fetchRequests(),
             ])
         }

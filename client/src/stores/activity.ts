@@ -15,6 +15,11 @@ export const useActivityStore = defineStore('activity', () => {
     const isLoading = ref(false)
     const error = ref<string | null>(null)
 
+    const feedPage = ref(0)
+    const feedTotal = ref(0)
+    const feedDone = ref(false)
+    const FEED_PAGE_SIZE = 9
+
     function setError(e: unknown) {
         error.value = e instanceof Error ? e.message : String(e)
     }
@@ -32,12 +37,26 @@ export const useActivityStore = defineStore('activity', () => {
         }
     }
 
-    async function fetchFeed(): Promise<void> {
+    function resetFeed(): void {
+        feed.value = []
+        feedPage.value = 0
+        feedTotal.value = 0
+        feedDone.value = false
+    }
+
+    async function fetchNextFeedPage(): Promise<void> {
+        if (isLoading.value || feedDone.value) return
         isLoading.value = true
         error.value = null
         try {
-            const res = await api<DataListEnvelope<Activity>>('activities/feed')
-            feed.value = res.data
+            const nextPage = feedPage.value + 1
+            const res = await api<DataListEnvelope<Activity>>(
+                `activities/feed?page=${nextPage}&pageSize=${FEED_PAGE_SIZE}`,
+            )
+            feed.value = [...feed.value, ...res.data]
+            feedPage.value = nextPage
+            feedTotal.value = res.total
+            if (feed.value.length >= res.total) feedDone.value = true
         } catch (e) {
             setError(e)
         } finally {
@@ -98,11 +117,15 @@ export const useActivityStore = defineStore('activity', () => {
     return {
         myActivities,
         feed,
+        feedPage,
+        feedTotal,
+        feedDone,
         stats,
         isLoading,
         error,
         fetchMine,
-        fetchFeed,
+        resetFeed,
+        fetchNextFeedPage,
         fetchStats,
         createActivity,
         deleteActivity,
