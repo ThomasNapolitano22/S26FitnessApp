@@ -17,10 +17,17 @@ router.use(requireAuth)
 router
     .get("/", async (req, res, next) => {
         try {
-            const list = await activitiesModel.getByUser(req.user!.id)
+            const page = Math.max(1, Number(req.query.page) || 1)
+            const pageSize = Math.min(50, Math.max(1, Number(req.query.pageSize) || 9))
+
+            const { rows, total } = await activitiesModel.getByUser(
+                req.user!.id,
+                page,
+                pageSize,
+            )
             const response: DataListEnvelope<ActivityWithDetails> = {
-                data: list,
-                total: list.length,
+                data: rows,
+                total,
                 isSuccess: true,
             }
             res.send(response)
@@ -30,10 +37,17 @@ router
     })
     .get("/feed", async (req, res, next) => {
         try {
-            const list = await activitiesModel.getFeed(req.user!.id)
+            const page = Math.max(1, Number(req.query.page) || 1)
+            const pageSize = Math.min(50, Math.max(1, Number(req.query.pageSize) || 9))
+
+            const { rows, total } = await activitiesModel.getFeed(
+                req.user!.id,
+                page,
+                pageSize,
+            )
             const response: DataListEnvelope<ActivityWithDetails> = {
-                data: list,
-                total: list.length,
+                data: rows,
+                total,
                 isSuccess: true,
             }
             res.send(response)

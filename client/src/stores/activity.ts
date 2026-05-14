@@ -15,16 +15,40 @@ export const useActivityStore = defineStore('activity', () => {
     const isLoading = ref(false)
     const error = ref<string | null>(null)
 
+    const feedPage = ref(0)
+    const feedTotal = ref(0)
+    const feedDone = ref(false)
+    const FEED_PAGE_SIZE = 9
+
+    const minePage = ref(0)
+    const mineTotal = ref(0)
+    const mineDone = ref(false)
+    const MINE_PAGE_SIZE = 9
+
     function setError(e: unknown) {
         error.value = e instanceof Error ? e.message : String(e)
     }
 
-    async function fetchMine(): Promise<void> {
+    function resetMine(): void {
+        myActivities.value = []
+        minePage.value = 0
+        mineTotal.value = 0
+        mineDone.value = false
+    }
+
+    async function fetchNextMinePage(): Promise<void> {
+        if (isLoading.value || mineDone.value) return
         isLoading.value = true
         error.value = null
         try {
-            const res = await api<DataListEnvelope<Activity>>('activities')
-            myActivities.value = res.data
+            const nextPage = minePage.value + 1
+            const res = await api<DataListEnvelope<Activity>>(
+                `activities?page=${nextPage}&pageSize=${MINE_PAGE_SIZE}`,
+            )
+            myActivities.value = [...myActivities.value, ...res.data]
+            minePage.value = nextPage
+            mineTotal.value = res.total
+            if (myActivities.value.length >= res.total) mineDone.value = true
         } catch (e) {
             setError(e)
         } finally {
@@ -32,12 +56,26 @@ export const useActivityStore = defineStore('activity', () => {
         }
     }
 
-    async function fetchFeed(): Promise<void> {
+    function resetFeed(): void {
+        feed.value = []
+        feedPage.value = 0
+        feedTotal.value = 0
+        feedDone.value = false
+    }
+
+    async function fetchNextFeedPage(): Promise<void> {
+        if (isLoading.value || feedDone.value) return
         isLoading.value = true
         error.value = null
         try {
-            const res = await api<DataListEnvelope<Activity>>('activities/feed')
-            feed.value = res.data
+            const nextPage = feedPage.value + 1
+            const res = await api<DataListEnvelope<Activity>>(
+                `activities/feed?page=${nextPage}&pageSize=${FEED_PAGE_SIZE}`,
+            )
+            feed.value = [...feed.value, ...res.data]
+            feedPage.value = nextPage
+            feedTotal.value = res.total
+            if (feed.value.length >= res.total) feedDone.value = true
         } catch (e) {
             setError(e)
         } finally {
@@ -75,12 +113,17 @@ export const useActivityStore = defineStore('activity', () => {
             body: input,
         })
         myActivities.value = [res.data, ...myActivities.value]
+        mineTotal.value = mineTotal.value + 1
     }
 
     async function deleteActivity(id: string): Promise<void> {
+        const wasInMine = myActivities.value.some((a) => a.id === id)
+        const wasInFeed = feed.value.some((a) => a.id === id)
         await api<DataEnvelope<Activity>>(`activities/${id}`, { method: 'DELETE' })
         myActivities.value = myActivities.value.filter((a) => a.id !== id)
         feed.value = feed.value.filter((a) => a.id !== id)
+        if (wasInMine && mineTotal.value > 0) mineTotal.value = mineTotal.value - 1
+        if (wasInFeed && feedTotal.value > 0) feedTotal.value = feedTotal.value - 1
     }
 
     async function updateActivity(
@@ -97,12 +140,20 @@ export const useActivityStore = defineStore('activity', () => {
 
     return {
         myActivities,
+        minePage,
+        mineTotal,
+        mineDone,
         feed,
+        feedPage,
+        feedTotal,
+        feedDone,
         stats,
         isLoading,
         error,
-        fetchMine,
-        fetchFeed,
+        resetMine,
+        fetchNextMinePage,
+        resetFeed,
+        fetchNextFeedPage,
         fetchStats,
         createActivity,
         deleteActivity,

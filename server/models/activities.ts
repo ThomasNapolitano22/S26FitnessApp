@@ -35,17 +35,32 @@ function rowToWithDetails(r: any): ActivityWithDetails {
 const SELECT_WITH_DETAILS =
     "*, exercise_types ( name, category, tracks_distance ), users ( name, username, icon )"
 
-export async function getByUser(userId: string): Promise<ActivityWithDetails[]> {
+export async function getByUser(
+    userId: string,
+    page: number,
+    pageSize: number,
+): Promise<{ rows: ActivityWithDetails[]; total: number }> {
     const db = connect()
-    const { data, error } = await db
+    const start = (page - 1) * pageSize
+    const end = start + pageSize - 1
+
+    const { data, error, count } = await db
         .from(TABLE)
-        .select(SELECT_WITH_DETAILS)
+        .select(SELECT_WITH_DETAILS, { count: "exact" })
         .eq("user_id", userId)
         .order("date", { ascending: false })
+        .range(start, end)
     if (error) throw dbError(error.message)
-    return (data || []).map(rowToWithDetails)
+    return {
+        rows: (data || []).map(rowToWithDetails),
+        total: count || 0,
+    }
 }
-export async function getFeed(userId: string): Promise<ActivityWithDetails[]> {
+export async function getFeed(
+    userId: string,
+    page: number,
+    pageSize: number,
+): Promise<{ rows: ActivityWithDetails[]; total: number }> {
     const db = connect()
 
     const { data: friendRows, error: friendErr } = await db
@@ -63,15 +78,21 @@ export async function getFeed(userId: string): Promise<ActivityWithDetails[]> {
 
     const visibleIds = [userId, ...friendIds]
 
-    const { data, error } = await db
+    const start = (page - 1) * pageSize
+    const end = start + pageSize - 1
+
+    const { data, error, count } = await db
         .from(TABLE)
-        .select(SELECT_WITH_DETAILS)
+        .select(SELECT_WITH_DETAILS, { count: "exact" })
         .in("user_id", visibleIds)
         .order("date", { ascending: false })
-        .limit(200)
+        .range(start, end)
     if (error) throw dbError(error.message)
 
-    return (data || []).map(rowToWithDetails)
+    return {
+        rows: (data || []).map(rowToWithDetails),
+        total: count || 0,
+    }
 }
 
 export async function get(id: string): Promise<ActivityWithDetails> {

@@ -23,17 +23,40 @@
                 Recent Exercises
             </h3>
 
+            <div class="has-text-centered has-text-white mb-3"
+                 v-if="activityStore.mineTotal > 0">
+                Showing {{ activityStore.myActivities.length }} of {{ activityStore.mineTotal }}
+            </div>
+
             <div class="columns is-multiline">
                 <div class="column is-one-third"
                      v-for="activity in activityStore.myActivities"
                      :key="activity.id">
                     <ExerciseCardComponent :activity="activity" @deleted="refresh" />
                 </div>
+
+                <template v-if="activityStore.isLoading">
+                    <div class="column is-one-third" v-for="n in 3" :key="`skeleton-mine-${n}`">
+                        <div class="box">
+                            <div class="skeleton-lines">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
 
             <div class="notification is-warning has-text-centered mt-4"
                  v-if="!activityStore.isLoading && activityStore.myActivities.length === 0">
                 <strong>You haven't added any exercises yet. Get out there!!!</strong>
+            </div>
+
+            <div class="has-text-centered has-text-white mt-4"
+                 v-if="activityStore.mineDone && activityStore.myActivities.length > 0">
+                You're all caught up!
             </div>
         </div>
     </div>
@@ -48,6 +71,7 @@
 
 <script setup lang="ts">
     import { onMounted } from 'vue'
+    import { useInfiniteScroll } from '@vueuse/core'
     import AddExerciseButtonCompnent from '@/components/ActivityPageComponents/AddExerciseButtonCompnent.vue'
     import ExerciseCardComponent from '@/components/ActivityPageComponents/ExerciseCardComponent.vue'
     import { useAuthStore } from '@/stores/auth'
@@ -56,8 +80,20 @@
     const authStore = useAuthStore()
     const activityStore = useActivityStore()
 
+    useInfiniteScroll(
+        window,
+        () => activityStore.fetchNextMinePage(),
+        {
+            distance: 200,
+            canLoadMore: () => !activityStore.mineDone && !activityStore.isLoading,
+        },
+    )
+
     function refresh() {
-        if (authStore.isLoggedIn) activityStore.fetchMine()
+        if (authStore.isLoggedIn) {
+            activityStore.resetMine()
+            activityStore.fetchNextMinePage()
+        }
     }
 
     onMounted(refresh)
