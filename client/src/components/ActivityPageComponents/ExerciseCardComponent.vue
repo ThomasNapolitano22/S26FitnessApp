@@ -55,7 +55,8 @@
             <span class="icon has-text-primary is-small mr-1">
                 <i class="fa-solid fa-location-dot has-text-black"></i>
             </span>
-            <strong class="has-text-black">Location:</strong> {{ activity.location }}
+            <strong class="has-text-black">Location:</strong>
+            <strong class="location-name">{{ activity.location }}</strong>
         </p>
 
         <p class="exercise-description mt-auto" v-if="activity.description">
@@ -146,5 +147,10 @@
         border-top: 1px solid rgba(188, 108, 37, 0.3);
         padding-top: 1rem;
         font-style: italic;
+    }
+    .location-name {
+        color: #B8860B;
+        font-weight: 700;
+        margin-left: 0.25rem;
     }
 </style>
